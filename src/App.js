@@ -3,6 +3,7 @@ import TalentList from "./components/TalentList";
 import TalentEdit from "./components/TalentEdit";
 import {Provider} from "mobx-react";
 import DialogStore from "./stores/DialogStore";
+import TalentStore from "./stores/TalentStore";
 
 const talents = [
   {
@@ -34,14 +35,18 @@ const talents = [
 const store = {
   dialogStore: DialogStore.create({
     talentEditOpen: false
+  }),
+  talentStore: TalentStore.create({
+    talents: talents,
+    editTalent: null
   })
 };
 
 const App = () => (
   <Provider {...store}>
     <div>
-      <TalentList talents={talents}/>
-      <TalentEdit talent={talents[0]}/>
+      <TalentList/>
+      <TalentEdit/>
     </div>
   </Provider>
 );

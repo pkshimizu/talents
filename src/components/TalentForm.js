@@ -13,7 +13,6 @@ const TalentForm = ({ talent, onClose }) => (
         value={talent.name}
       />
       <TextField
-        autoFocus
         margin="dense"
         fullWidth
         label="かな"
@@ -21,7 +20,6 @@ const TalentForm = ({ talent, onClose }) => (
         value={talent.kana}
       />
       <TextField
-        autoFocus
         margin="dense"
         fullWidth
         label="部署"
@@ -29,7 +27,6 @@ const TalentForm = ({ talent, onClose }) => (
         value={talent.department}
       />
       <TextField
-        autoFocus
         margin="dense"
         fullWidth
         label="役職"
@@ -37,7 +34,6 @@ const TalentForm = ({ talent, onClose }) => (
         value={talent.position}
       />
       <TextField
-        autoFocus
         margin="dense"
         fullWidth
         label="業務内容"
