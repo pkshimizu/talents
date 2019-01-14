@@ -1,5 +1,6 @@
 import { types } from 'mobx-state-tree'
 import Talent from '../models/Talent'
+import HttpClient from '../HttpClient'
 
 const TalentStore = types
   .model({
@@ -15,6 +16,20 @@ const TalentStore = types
     }
   }))
   .actions(self => ({
+    afterCreate () {
+      self.load()
+    },
+    load () {
+      HttpClient.get('/api/talents/')
+        .then((response) => {
+          response.data.forEach((talent) => {
+            self.addTalent(talent)
+          })
+        })
+    },
+    addTalent (talent) {
+      self.talents.push(talent)
+    },
     setEditTalent (talent) {
       self.editTalent = talent
     }

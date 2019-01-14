@@ -1,6 +1,6 @@
 import React from 'react'
 import { Paper, Table, TableRow, TableHead, TableCell, TableBody, Button } from '@material-ui/core'
-import { inject } from 'mobx-react'
+import { inject, observer } from 'mobx-react'
 
 const TalentList = ({ talentStore, dialogStore }) => (
   <Paper>
@@ -32,4 +32,4 @@ const TalentList = ({ talentStore, dialogStore }) => (
   </Paper>
 )
 
-export default inject('talentStore', 'dialogStore')(TalentList)
+export default inject('talentStore', 'dialogStore')(observer(TalentList))
