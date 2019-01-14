@@ -1,54 +1,45 @@
 import React from 'react'
-import { DialogContent, TextField, DialogActions, Button } from '@material-ui/core'
+import { DialogContent, DialogActions, Button } from '@material-ui/core'
+import MaterialTextField from '../forms/MaterialTextField'
 
-const TalentForm = ({ talent, onClose }) => (
+const TalentForm = ({ form, onClose }) => (
   <form>
     <DialogContent>
-      <TextField
+      <MaterialTextField
         autoFocus
         margin="dense"
         fullWidth
-        label="氏名"
-        type="text"
-        value={talent.name}
+        field={form.$('name')}
       />
-      <TextField
+      <MaterialTextField
         margin="dense"
         fullWidth
-        label="かな"
-        type="text"
-        value={talent.kana}
+        field={form.$('kana')}
       />
-      <TextField
+      <MaterialTextField
         margin="dense"
         fullWidth
-        label="部署"
-        type="text"
-        value={talent.department}
+        field={form.$('department')}
       />
-      <TextField
+      <MaterialTextField
         margin="dense"
         fullWidth
-        label="役職"
-        type="text"
-        value={talent.position}
+        field={form.$('position')}
       />
-      <TextField
+      <MaterialTextField
         margin="dense"
         fullWidth
-        label="業務内容"
-        type="text"
-        value={talent.business}
+        field={form.$('business')}
       />
     </DialogContent>
     <DialogActions>
       <Button onClick={onClose} color="primary">
         キャンセル
       </Button>
-      <Button color="primary">
+      <Button onClick={form.onReset} color="primary">
         リセット
       </Button>
-      <Button color="primary">
+      <Button onClick={form.onSubmit} color="primary">
         更新
       </Button>
     </DialogActions>
