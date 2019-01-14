@@ -1,7 +1,8 @@
 import React from 'react'
 import { Paper, Table, TableRow, TableHead, TableCell, TableBody, Button } from '@material-ui/core'
+import { inject } from 'mobx-react'
 
-const TalentList = ({ talents }) => (
+const TalentList = ({ talents, dialogStore }) => (
   <Paper>
     <Table>
       <TableHead>
@@ -20,7 +21,7 @@ const TalentList = ({ talents }) => (
             <TableCell>{talent.department}</TableCell>
             <TableCell>{talent.position}</TableCell>
             <TableCell>{talent.business}</TableCell>
-            <TableCell><Button>編集</Button></TableCell>
+            <TableCell><Button onClick={() => dialogStore.openTalentEdit(true)}>編集</Button></TableCell>
           </TableRow>
         ))}
       </TableBody>
@@ -28,4 +29,4 @@ const TalentList = ({ talents }) => (
   </Paper>
 )
 
-export default TalentList
+export default inject('dialogStore')(TalentList)

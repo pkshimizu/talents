@@ -1,6 +1,8 @@
 import React from 'react'
 import TalentList from "./components/TalentList";
 import TalentEdit from "./components/TalentEdit";
+import {Provider} from "mobx-react";
+import DialogStore from "./stores/DialogStore";
 
 const talents = [
   {
@@ -28,11 +30,20 @@ const talents = [
     "business": "",
   },
 ];
+
+const store = {
+  dialogStore: DialogStore.create({
+    talentEditOpen: false
+  })
+};
+
 const App = () => (
-  <div>
-    <TalentList talents={talents}/>
-    <TalentEdit talent={talents[0]}/>
-  </div>
-)
+  <Provider {...store}>
+    <div>
+      <TalentList talents={talents}/>
+      <TalentEdit talent={talents[0]}/>
+    </div>
+  </Provider>
+);
 
 export default App

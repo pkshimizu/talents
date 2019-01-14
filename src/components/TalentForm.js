@@ -1,7 +1,7 @@
 import React from 'react'
 import { DialogContent, TextField, DialogActions, Button } from '@material-ui/core'
 
-const TalentForm = ({ talent }) => (
+const TalentForm = ({ talent, onClose }) => (
   <form>
     <DialogContent>
       <TextField
@@ -46,7 +46,7 @@ const TalentForm = ({ talent }) => (
       />
     </DialogContent>
     <DialogActions>
-      <Button color="primary">
+      <Button onClick={onClose} color="primary">
         キャンセル
       </Button>
       <Button color="primary">
