@@ -3,6 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^3.8.3",
+    "axios": "^0.18.0",
+    "mobx": "^5.8.0",
+    "mobx-react": "^5.4.3",
+    "mobx-react-form": "^1.35.2",
+    "mobx-state-tree": "^3.10.0",
+    "opencollective": "^1.0.3",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-scripts": "2.1.3"
